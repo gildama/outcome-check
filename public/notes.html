@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Shared notes · Candidate app</title><link rel="stylesheet" href="/assets/notes.css"></head>
+<body><main>
+  <div class="eyebrow">CANDIDATE APPLICATION</div>
+  <h1>Shared notes<span>↗</span></h1>
+  <p class="subtitle">A small workspace. Open it anywhere.</p>
+  <form id="note-form"><label for="note">New note</label><textarea id="note" maxlength="160" required placeholder="Prepare launch checklist"></textarea><div class="save-row"><button type="submit">Save note</button><span id="status" role="status" data-state="idle">Ready</span></div></form>
+  <section aria-label="Workspace notes"><h2>Your notes</h2><div id="notes"></div><p id="empty">No notes in this workspace.</p></section>
+  <p class="footnote">Fictional demo data · Workspace expires after one hour</p>
+</main><script type="module" src="./candidate.js"></script></body></html>

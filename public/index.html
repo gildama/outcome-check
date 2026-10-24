@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A live, evidence-first demonstration of independent outcome verification for coding agents."><title>Outcome Check · Independent verification</title><link rel="stylesheet" href="/assets/style.css"></head>
+<body>
+<header class="masthead"><a class="brand" href="/" aria-label="Outcome Check home"><span class="brand-mark">◎</span> Outcome Check</a><span class="masthead-note">INDEPENDENT OUTCOME VERIFICATION</span><a href="/design" target="_blank" rel="noopener">Design rationale ↗</a></header>
+<main>
+  <section class="intro"><div><div class="eyebrow"><span class="dot"></span> A SMALL, EXECUTABLE CASE STUDY</div><h1>Green tests.<br><em>Verified outcomes?</em></h1><p>An agent says the fix is done. Check what actually happened—using evidence outside its tests.</p></div><div class="contract"><div class="eyebrow">ONE TASK · FOUR IMPLEMENTATIONS</div><p>Fix Save so a note is stored on the server and appears when the same workspace is opened in a fresh browser session.</p><div class="fixture-label">Handcrafted candidates · Real browser execution</div></div></section>
+  <div class="workspace">
+    <aside><div class="section-label">01 / CHOOSE A CANDIDATE</div><div id="candidates" class="candidate-list"></div><button id="compare" class="secondary full">Compare all four <span>↗</span></button><p class="aside-note">No API key. No uploads.<br>Only the four reviewed implementations run.</p></aside>
+    <section class="main-stage" aria-label="Verification workspace">
+      <div class="stage-heading"><div><div id="candidate-kind" class="eyebrow"></div><h2 id="candidate-name">Loading candidates…</h2></div><span class="pill">HANDCRAFTED FIXTURE</span></div>
+      <p id="candidate-summary" class="muted"></p>
+      <div class="claim"><span class="quote-mark">“</span><div><div class="section-label">AGENT’S CLAIM · ILLUSTRATIVE</div><p id="candidate-claim"></p></div></div>
+      <div class="interaction-grid">
+        <div class="app-panel"><div class="panel-bar"><span>Candidate application</span><button id="reset" class="text-button">Reset workspace ↻</button></div><iframe id="candidate-frame" title="Try the candidate shared-notes app" src="about:blank"></iframe><div class="panel-caption">Try Save yourself. Verification uses a separate workspace.</div></div>
+        <div class="verify-panel"><div class="section-label">02 / CHECK THE OUTCOME</div><h3>Look beyond<br>the success message.</h3><ol class="steps"><li><span>1</span>Rerun the candidate’s visible tests</li><li><span>2</span>Save a fresh, unique note</li><li><span>3</span>Read server storage independently</li><li><span>4</span>Open a clean browser session</li></ol><button id="verify" class="primary">Verify independently <span>→</span></button><label class="fault-option"><input type="checkbox" id="observer-outage"> Simulate storage-observer outage</label><p class="tiny">A failed observation can leave the outcome unresolved. Test changes alone never decide the verdict.</p><div id="progress" role="status" aria-live="polite"></div></div>
+      </div>
+      <section id="result" class="result" hidden aria-live="polite"></section>
+      <details class="source-details"><summary>Inspect candidate code and test changes <span>+</span></summary><div id="integrity-note" class="source-note"></div><div class="source-grid"><div><h4>Candidate implementation</h4><pre id="candidate-code"></pre></div><div><h4>Submitted visible tests</h4><pre id="candidate-tests"></pre></div></div><details><summary>Reference visible tests</summary><pre id="reference-tests"></pre></details></details>
+    </section>
+  </div>
+  <section id="comparison" class="comparison" hidden><div class="section-label">CONTROLLED COMPARISON</div><h2>Same task. Different ways to pass.</h2><p>Expected outcomes are specified by hand. Results below come from live execution.</p><div id="comparison-content"></div></section>
+  <section class="boundary"><div><div class="eyebrow">THE BOUNDARY</div><h2>Evidence, with limits.</h2></div><div><h3>Candidate-controlled</h3><p>Browser-side implementation, visible tests, and the completion claim.</p></div><div><h3>Verifier-controlled</h3><p>Task contract, fresh inputs, browser contexts, read-only storage checks, and result generation.</p></div><div><h3>What this establishes</h3><p>Whether this saved note meets this task. It does not establish intent, general correctness, or durability across server restarts.</p></div></section>
+  <footer><span>Outcome Check · v1.0</span><span>Constructed examples are not a real-world detection benchmark.</span><a href="/design" target="_blank" rel="noopener">Read the rationale ↗</a></footer>
+</main><script type="module" src="/assets/app.js"></script></body></html>
