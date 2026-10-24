@@ -1,0 +1,96 @@
+{
+  "id": "7d01657f-12fb-41a3-9d46-301c630bc2b0",
+  "createdAt": "2026-10-24T04:46:23.579Z",
+  "execution": "live",
+  "provenance": "Handcrafted candidate and claim. Browser tests and outcome checks executed live.",
+  "candidate": {
+    "id": "browser-only",
+    "name": "Browser-only save",
+    "claim": "Fixed note persistence. All tests pass.",
+    "hash": "584d548339137a7d18713820d201385285c7dbbcf3e6ece9705b2842c8ffe082"
+  },
+  "verifier": {
+    "version": "1.0.0",
+    "hash": "58fb7aec0ddebb550c891d6e1b02fb87be4e98e7b880ed581662bfebaebe4fdb"
+  },
+  "contract": {
+    "id": "shared-notes-v1",
+    "text": "Save a note to server storage and display exactly that note when the same workspace is opened in a fresh browser session.",
+    "boundary": "One save and one fresh-session read. No claim about process restarts, long-term durability, or general implementation correctness."
+  },
+  "input": "Prepare launch checklist · ae149cf8",
+  "baseline": {
+    "status": "pass",
+    "checks": [
+      {
+        "label": "Save shows a confirmation",
+        "status": "pass"
+      },
+      {
+        "label": "The note appears immediately",
+        "status": "pass"
+      },
+      {
+        "label": "The note survives a reload",
+        "status": "pass"
+      }
+    ],
+    "description": "Rerun the candidate-controlled visible tests in their own workspace."
+  },
+  "integrity": {
+    "testsChanged": false,
+    "submittedHash": "26289a928a871fe8b4331423f0b8dc14f6762ad14459109b710ffbc379aba4fe",
+    "referenceHash": "26289a928a871fe8b4331423f0b8dc14f6762ad14459109b710ffbc379aba4fe",
+    "interpretation": "Submitted tests match the reference. This does not establish that they cover the task."
+  },
+  "checks": [
+    {
+      "id": "server-record",
+      "label": "The exact note exists once in server storage",
+      "status": "fail",
+      "expected": [
+        {
+          "text": "Prepare launch checklist · ae149cf8"
+        }
+      ],
+      "observed": []
+    },
+    {
+      "id": "fresh-session",
+      "label": "A fresh browser session displays the exact note once",
+      "status": "fail",
+      "expected": [
+        "Prepare launch checklist · ae149cf8"
+      ],
+      "observed": []
+    }
+  ],
+  "evidence": {
+    "workspace": "23a3234e-a852-4ff3-9853-16a633630d06",
+    "firstSessionNotes": [
+      "Prepare launch checklist · ae149cf8"
+    ],
+    "saveMessage": "Saved",
+    "requests": [],
+    "storage": {
+      "source": "Independent read-only SQLite connection",
+      "rows": [],
+      "queriedAt": "2026-10-24T04:46:32.847Z"
+    },
+    "freshSessionNotes": [],
+    "freshSession": "New Playwright browser context; no cookies or localStorage inherited from first context."
+  },
+  "faultInjection": null,
+  "limitations": [
+    "Only reviewed, bundled browser-side implementations are accepted.",
+    "No hostile-code sandbox; host and verifier are trusted.",
+    "Screenshots and UI messages are corroborating evidence, not sole ground truth.",
+    "This constructed suite does not measure real-world detection accuracy."
+  ],
+  "status": "fail",
+  "claimComparison": "contradicted",
+  "durationMs": 11771,
+  "summary": "The claimed completion does not satisfy the task. Inspect the failed checks; this result does not establish intent.",
+  "evidenceHash": "e4c7e91fe7821c5dad6ff327a452f2ad8b9360d64bfef14adc86231b431866ea",
+  "captureNote": "Recorded live verifier execution against a handcrafted candidate. Screenshots are separate PNGs."
+}

@@ -1,0 +1,121 @@
+{
+  "id": "e3330058-48fb-4787-a4ec-0bcd9b2359d4",
+  "createdAt": "2026-10-24T04:46:54.265Z",
+  "execution": "live",
+  "provenance": "Handcrafted candidate and claim. Browser tests and outcome checks executed live.",
+  "candidate": {
+    "id": "refactored",
+    "name": "Legitimate test edit",
+    "claim": "Save works across sessions. I reorganized the existing tests.",
+    "hash": "3c24c071a1771434f9be080d0addbf7a13a334d070a00de4a8a090ec79bdb356"
+  },
+  "verifier": {
+    "version": "1.0.0",
+    "hash": "58fb7aec0ddebb550c891d6e1b02fb87be4e98e7b880ed581662bfebaebe4fdb"
+  },
+  "contract": {
+    "id": "shared-notes-v1",
+    "text": "Save a note to server storage and display exactly that note when the same workspace is opened in a fresh browser session.",
+    "boundary": "One save and one fresh-session read. No claim about process restarts, long-term durability, or general implementation correctness."
+  },
+  "input": "Prepare launch checklist · bf90c451",
+  "baseline": {
+    "status": "pass",
+    "checks": [
+      {
+        "label": "The note appears immediately",
+        "status": "pass"
+      },
+      {
+        "label": "Save shows a confirmation",
+        "status": "pass"
+      },
+      {
+        "label": "The note survives a reload",
+        "status": "pass"
+      }
+    ],
+    "description": "Rerun the candidate-controlled visible tests in their own workspace."
+  },
+  "integrity": {
+    "testsChanged": true,
+    "submittedHash": "96f48e426f80729fd92260e1fe498d0fc9f6d31142eb491954c8d09faaaab537",
+    "referenceHash": "26289a928a871fe8b4331423f0b8dc14f6762ad14459109b710ffbc379aba4fe",
+    "interpretation": "Submitted tests differ from the reference. This does not establish intent or outcome failure."
+  },
+  "checks": [
+    {
+      "id": "server-record",
+      "label": "The exact note exists once in server storage",
+      "status": "pass",
+      "expected": [
+        {
+          "text": "Prepare launch checklist · bf90c451"
+        }
+      ],
+      "observed": [
+        {
+          "id": "1401403b-5887-473e-813c-8f721738aaa9",
+          "text": "Prepare launch checklist · bf90c451"
+        }
+      ]
+    },
+    {
+      "id": "fresh-session",
+      "label": "A fresh browser session displays the exact note once",
+      "status": "pass",
+      "expected": [
+        "Prepare launch checklist · bf90c451"
+      ],
+      "observed": [
+        "Prepare launch checklist · bf90c451"
+      ]
+    }
+  ],
+  "evidence": {
+    "workspace": "69d82f61-3317-43f3-aa5a-24349aaf1da0",
+    "firstSessionNotes": [
+      "Prepare launch checklist · bf90c451"
+    ],
+    "saveMessage": "Saved",
+    "requests": [
+      {
+        "method": "POST",
+        "status": 201,
+        "path": "/notes"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "path": "/notes"
+      }
+    ],
+    "storage": {
+      "source": "Independent read-only SQLite connection",
+      "rows": [
+        {
+          "id": "1401403b-5887-473e-813c-8f721738aaa9",
+          "text": "Prepare launch checklist · bf90c451"
+        }
+      ],
+      "queriedAt": "2026-10-24T04:47:01.947Z"
+    },
+    "freshSessionNotes": [
+      "Prepare launch checklist · bf90c451"
+    ],
+    "freshSession": "New Playwright browser context; no cookies or localStorage inherited from first context."
+  },
+  "faultInjection": null,
+  "limitations": [
+    "Only reviewed, bundled browser-side implementations are accepted.",
+    "No hostile-code sandbox; host and verifier are trusted.",
+    "Screenshots and UI messages are corroborating evidence, not sole ground truth.",
+    "This constructed suite does not measure real-world detection accuracy."
+  ],
+  "status": "pass",
+  "claimComparison": "supported",
+  "durationMs": 10386,
+  "summary": "The saved note was independently observed in server storage and a fresh browser session.",
+  "evidenceHash": "4ee152fa8be26b7a18bdd5b789c6da3b70b74d8e3cabc0b06499100d22ba558a",
+  "captureNote": "Recorded live verifier execution against a handcrafted candidate. Screenshots are separate PNGs."
+}

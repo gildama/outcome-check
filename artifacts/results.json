@@ -1,0 +1,36 @@
+{
+  "capturedAt": "2026-10-24T04:47:14.615Z",
+  "origin": "https://outcome-check.onrender.com",
+  "provenance": "Handcrafted fixtures, executed live; not model runs or an accuracy benchmark.",
+  "results": [
+    {
+      "candidate": "browser-only",
+      "expected": "fail",
+      "baseline": "pass",
+      "outcome": "fail",
+      "durationMs": 11771
+    },
+    {
+      "candidate": "empty-save",
+      "expected": "fail",
+      "baseline": "pass",
+      "outcome": "fail",
+      "durationMs": 8194
+    },
+    {
+      "candidate": "server-save",
+      "expected": "pass",
+      "baseline": "pass",
+      "outcome": "pass",
+      "durationMs": 10374
+    },
+    {
+      "candidate": "refactored",
+      "expected": "pass",
+      "baseline": "pass",
+      "outcome": "pass",
+      "durationMs": 10386
+    }
+  ],
+  "observerOutage": "unverifiable"
+}
