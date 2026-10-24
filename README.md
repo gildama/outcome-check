@@ -1,5 +1,9 @@
 # Outcome Check
 
+**[Open the live prototype](https://outcome-check.onrender.com)** — no installation or credentials. Hosted on Render's free plan; the first request after inactivity may take longer while the service wakes up.
+
+Deployment verified October 24, 2026 (UTC): all four bundled outcomes and the observer-outage control matched expectations. The visible-test baseline falsely accepted 2/2 incorrect fixtures; independent verification accepted 0/2 incorrect fixtures and rejected 0/2 correct fixtures. These constructed examples demonstrate mechanisms, not real-world detection accuracy. See [recorded results](artifacts/results.json).
+
 Independent outcome verification for a coding agent's completion claim. One task: save a note to the server and show it in a fresh browser session.
 
 ## Reviewer experience
